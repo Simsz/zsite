@@ -106,9 +106,9 @@ const Hero = () => {
         </div>
 
         {/* Map Container with Gradient Overlay */}
-        <div className="absolute bottom-0 left-0 right-0 h-[700px] -mt-32 overflow-hidden">
+        <div className="absolute bottom-0 left-0 right-0 h-[900px] -mt-32 overflow-hidden">
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#FFCC00] via-[#FFCC00]/50 via-10% to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#FFCC00] via-[#FFCC00]/70 via-20% to-transparent z-10" />
           
           {/* Map */}
           <div className="absolute inset-0">

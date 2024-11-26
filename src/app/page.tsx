@@ -8,6 +8,7 @@ import { ProjectsGrid } from "../app/components/ProjectsGrid";
 import { Technologies } from "../app/components/Technologies";
 import JobHistory from "../app/components/JobHistory";
 import Hero from "../app/components/Hero";
+import Contact from "../app/components/Contact";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -61,6 +62,8 @@ export default function Home() {
           <ProjectsGrid />
         </div>
       </main>
+
+      <Contact />
 
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

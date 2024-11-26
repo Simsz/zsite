@@ -8,6 +8,7 @@ const ProjectsGrid = () => {
       title: "TinyPM",
       description:
         "Quick and easy server management with Pterodactyl Panel in Docker-compose stacks.",
+      shortDescription: "Proof of concept website for a local bar.",
       image: "/images/tinypm.png",
       technologies: ["Docker", "Node.js", "React", "Tailwind"],
       github: "https://github.com/yourusername/tinypm",
@@ -17,6 +18,7 @@ const ProjectsGrid = () => {
       title: "Liar's Bar",
       description:
         "Web based version of Russian Roulette, built with HTML5, CSS3 and Javascript.",
+      shortDescription: "Proof of concept website for a local bar.",
       image: "/images/liarsbar.png",
       technologies: ["HTML", "CSS", "JavaScript"],
       link: "https://liar.tiny.pm",
@@ -25,6 +27,7 @@ const ProjectsGrid = () => {
       title: "Martine",
       description:
         "Proof of concept website for a local bar using Astro, React and TailwindCSS.",
+      shortDescription: "Proof of concept website for a local bar.",
       image: "/images/martine.png",
       technologies: ["Astro", "React", "TailwindCSS"],
       link: "https://martine.tiny.pm",

@@ -6,7 +6,7 @@ import {
   DialogContent,
   DialogTitle,
   DialogClose,
-} from "@/components/ui/dialog";
+} from "@/app/components/ui/dialog";
 
 interface Article {
   title: string;
@@ -16,6 +16,7 @@ interface Article {
 interface Project {
   title: string;
   description: string;
+  shortDescription?: string; // Optional short description
   image?: string;
   technologies?: string[];
   link?: string;
@@ -31,6 +32,12 @@ interface TechTagProps {
 interface ProjectCardProps {
   project: Project;
 }
+
+// Helper function to truncate text
+const truncateText = (text: string, maxLength: number = 50): string => {
+  if (text.length <= maxLength) return text;
+  return text.slice(0, maxLength).trim() + "...";
+};
 
 const TechTag = ({ name, variant = "default" }: TechTagProps) => (
   <span
@@ -48,6 +55,9 @@ const TechTag = ({ name, variant = "default" }: TechTagProps) => (
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const [showModal, setShowModal] = useState(false);
+  
+  // Use shortDescription if provided, otherwise truncate the full description
+  const cardDescription = project.shortDescription || truncateText(project.description);
 
   return (
     <>
@@ -58,7 +68,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           hover:shadow-2xl hover:shadow-[#FFCC00]/10 hover:-translate-y-1"
       >
         {/* Image Container */}
-        <div className="h-[50%] relative overflow-hidden">
+        <div className="h-[48%] relative overflow-hidden">
           <Image
             src={project.image || "/images/placeholder.jpg"}
             alt={project.title}
@@ -98,7 +108,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </div>
 
           <h3
-            className="text-2xl font-bold text-[#FFCC00] mb-2 transition-colors duration-300
+            className="text-2xl font-bold text-[#FFCC00] transition-colors duration-300
             group-hover:text-[#FFCC00]"
           >
             {project.title}
@@ -106,9 +116,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
 
           <p
             className="text-[#FFCC00]/70 group-hover:text-[#FFCC00]/90 text-base mb-4
-            transition-colors duration-300 line-clamp-3"
+            transition-colors duration-300"
           >
-            {project.description}
+            {cardDescription}
           </p>
 
           <button
@@ -142,13 +152,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             {project.title} - Project Details
           </DialogTitle>
 
-          <DialogClose className="absolute right-4 top-4 z-50">
-            <button
-              className="p-2 rounded-full bg-black/80 hover:bg-black text-[#FFCC00] 
-              hover:text-[#FFCC00] transition-all duration-200 hover:scale-110"
-            >
-              <X className="w-5 h-5" />
-            </button>
+          <DialogClose className="absolute right-4 top-4 z-50 p-2 rounded-full bg-black/80 hover:bg-black text-[#FFCC00] hover:text-[#FFCC00] transition-all duration-200 hover:scale-110">
+            <X className="w-5 h-5" />
           </DialogClose>
 
           <div className="relative aspect-video bg-[#111]">
