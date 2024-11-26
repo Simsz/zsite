@@ -1,28 +1,34 @@
-import Link from 'next/link';
-import { GithubIcon, Twitter, Linkedin, Mail, ArrowUpRight } from 'lucide-react';
+import Link from "next/link";
+import {
+  GithubIcon,
+  Twitter,
+  Linkedin,
+  Mail,
+  ArrowUpRight,
+} from "lucide-react";
 
 const Footer = () => {
   const socialLinks = [
     {
       href: "https://github.com/yourusername",
       icon: GithubIcon,
-      label: "GitHub"
+      label: "GitHub",
     },
     {
       href: "https://twitter.com/yourusername",
       icon: Twitter,
-      label: "Twitter"
+      label: "Twitter",
     },
     {
       href: "https://linkedin.com/in/yourusername",
       icon: Linkedin,
-      label: "LinkedIn"
+      label: "LinkedIn",
     },
     {
       href: "mailto:you@email.com",
       icon: Mail,
-      label: "Email"
-    }
+      label: "Email",
+    },
   ];
 
   return (
@@ -31,8 +37,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-2xl font-bold hover:opacity-80 transition-opacity inline-block"
             >
               tiny.dev
@@ -50,10 +56,10 @@ const Footer = () => {
                 { label: "About", href: "/about" },
                 { label: "Projects", href: "/#projects" },
                 { label: "Resume", href: "/resume" },
-                { label: "Contact", href: "/contact" }
+                { label: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.label}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="group flex items-center gap-1 text-[#FFCC00]/80 hover:text-[#FFCC00] transition-colors"
                   >
@@ -88,18 +94,24 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-[#FFCC00]/20 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#FFCC00]/80 text-sm">
-            &copy; {new Date().getFullYear()} tiny.dev. All rights reserved.
-          </p>
+          <div className="flex flex-col md:flex-row gap-4 items-center">
+            <p className="text-[#FFCC00]/80 text-sm">
+              &copy; {new Date().getFullYear()} tiny.dev. All rights reserved.
+            </p>
+            {/* Map Attribution */}
+            <p className="text-[#FFCC00]/60 text-sm">
+              Map data © <a href="https://www.maptiler.com" className="hover:text-[#FFCC00]" target="_blank" rel="noopener noreferrer">MapTiler</a> © <a href="https://www.openstreetmap.org/copyright" className="hover:text-[#FFCC00]" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>
+            </p>
+          </div>
           <div className="flex gap-6">
-            <Link 
-              href="/privacy" 
+            <Link
+              href="/privacy"
               className="text-sm text-[#FFCC00]/80 hover:text-[#FFCC00] transition-colors"
             >
               Privacy Policy
             </Link>
-            <Link 
-              href="/terms" 
+            <Link
+              href="/terms"
               className="text-sm text-[#FFCC00]/80 hover:text-[#FFCC00] transition-colors"
             >
               Terms of Service

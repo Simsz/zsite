@@ -1,93 +1,138 @@
-import { useState } from 'react';
-import Image from 'next/image';
-import { Github, ExternalLink, BookOpen, ArrowUpRight, X } from 'lucide-react';
-import { Dialog, DialogContent, DialogTitle, DialogClose } from "@/components/ui/dialog";
+import { useState } from "react";
+import Image from "next/image";
+import { Github, ExternalLink, BookOpen, ArrowUpRight, X } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog";
 
-const TechTag = ({ name, variant = "default" }) => (
-  <span className={`px-3 py-1 text-sm font-medium rounded-full shadow-sm 
+interface Article {
+  title: string;
+  link: string;
+}
+
+interface Project {
+  title: string;
+  description: string;
+  image?: string;
+  technologies?: string[];
+  link?: string;
+  github?: string;
+  articles?: Article[];
+}
+
+interface TechTagProps {
+  name: string;
+  variant?: "default" | "modal";
+}
+
+interface ProjectCardProps {
+  project: Project;
+}
+
+const TechTag = ({ name, variant = "default" }: TechTagProps) => (
+  <span
+    className={`px-3 py-1 text-sm font-medium rounded-full shadow-sm 
     hover:scale-105 hover:shadow-md transition-all duration-200 cursor-default
-    ${variant === "modal" ? 
-      "bg-black text-[#FFCC00] hover:bg-black/90" : 
-      "bg-[#FFCC00] text-black"
-    }`}>
+    ${
+      variant === "modal"
+        ? "bg-black text-[#FFCC00] hover:bg-black/90"
+        : "bg-[#FFCC00] text-black"
+    }`}
+  >
     {name}
   </span>
 );
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project }: ProjectCardProps) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <div 
+      <div
         onClick={() => setShowModal(true)}
         className="group relative overflow-hidden rounded-2xl bg-black 
           border-2 border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all duration-500 cursor-pointer
           hover:shadow-2xl hover:shadow-[#FFCC00]/10 hover:-translate-y-1"
       >
-        {/* Image Container - Now 50% height to give more room for content */}
+        {/* Image Container */}
         <div className="h-[50%] relative overflow-hidden">
           <Image
-            src={project.image || '/images/placeholder.jpg'}
+            src={project.image || "/images/placeholder.jpg"}
             alt={project.title}
             className="object-cover opacity-60 group-hover:opacity-90 transition-all duration-500 
               group-hover:scale-105 transform-gpu"
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-          {/* Animated Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black 
-            opacity-70 group-hover:opacity-90 transition-opacity duration-500" />
+          <div
+            className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/0 to-black 
+            opacity-70 group-hover:opacity-90 transition-opacity duration-500"
+          />
         </div>
 
-        {/* Content Container - Now 50% height */}
+        {/* Content Container */}
         <div className="relative h-[50%] bg-black p-6 group-hover:bg-black/95 transition-colors duration-500">
-          {/* Tech Tags */}
           <div className="flex flex-wrap gap-2 mb-3 -mt-12 relative z-10">
-            {project.technologies?.slice(0, 3).map((tech, index) => (
-              <div key={tech} 
-                className="transform transition-all duration-500"
-                style={{ 
-                  transitionDelay: `${index * 50}ms`,
-                  transform: 'translateY(0)',
-                }}
-              >
-                <TechTag name={tech} />
-              </div>
-            ))}
-            {project.technologies?.length > 3 && (
+            {project.technologies
+              ?.slice(0, 3)
+              .map((tech: string, index: number) => (
+                <div
+                  key={tech}
+                  className="transform transition-all duration-500"
+                  style={{
+                    transitionDelay: `${index * 50}ms`,
+                    transform: "translateY(0)",
+                  }}
+                >
+                  <TechTag name={tech} />
+                </div>
+              ))}
+            {(project.technologies?.length ?? 0) > 3 && (
               <span className="text-sm text-[#FFCC00]/70 self-center">
-                +{project.technologies.length - 3} more
+                +{(project.technologies?.length ?? 0) - 3} more
               </span>
             )}
           </div>
 
-          <h3 className="text-2xl font-bold text-[#FFCC00] mb-2 transition-colors duration-300
-            group-hover:text-[#FFCC00]">
+          <h3
+            className="text-2xl font-bold text-[#FFCC00] mb-2 transition-colors duration-300
+            group-hover:text-[#FFCC00]"
+          >
             {project.title}
           </h3>
-          
-          <p className="text-[#FFCC00]/70 group-hover:text-[#FFCC00]/90 text-base mb-4
-            transition-colors duration-300 line-clamp-3">
+
+          <p
+            className="text-[#FFCC00]/70 group-hover:text-[#FFCC00]/90 text-base mb-4
+            transition-colors duration-300 line-clamp-3"
+          >
             {project.description}
           </p>
 
-          <button 
+          <button
             className="inline-flex items-center gap-2 px-4 py-2 bg-[#FFCC00] text-black 
               rounded-full transition-all duration-300 transform
               hover:bg-[#FFCC00]/90 hover:gap-3 group/btn mt-auto"
           >
             Learn More
-            <ArrowUpRight className="w-4 h-4 transition-all duration-300 
-              group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+            <ArrowUpRight
+              className="w-4 h-4 transition-all duration-300 
+              group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+            />
           </button>
         </div>
 
         {/* Corner Decorations */}
-        <div className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#FFCC00]/30 
-          group-hover:border-[#FFCC00] transition-all duration-500" />
-        <div className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#FFCC00]/30 
-          group-hover:border-[#FFCC00] transition-all duration-500" />
+        <div
+          className="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#FFCC00]/30 
+          group-hover:border-[#FFCC00] transition-all duration-500"
+        />
+        <div
+          className="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#FFCC00]/30 
+          group-hover:border-[#FFCC00] transition-all duration-500"
+        />
       </div>
 
       {/* Modal */}
@@ -96,23 +141,27 @@ const ProjectCard = ({ project }) => {
           <DialogTitle className="sr-only">
             {project.title} - Project Details
           </DialogTitle>
-          
+
           <DialogClose className="absolute right-4 top-4 z-50">
-            <button className="p-2 rounded-full bg-black/80 hover:bg-black text-[#FFCC00] 
-              hover:text-[#FFCC00] transition-all duration-200 hover:scale-110">
+            <button
+              className="p-2 rounded-full bg-black/80 hover:bg-black text-[#FFCC00] 
+              hover:text-[#FFCC00] transition-all duration-200 hover:scale-110"
+            >
               <X className="w-5 h-5" />
             </button>
           </DialogClose>
 
           <div className="relative aspect-video bg-[#111]">
-            {/* Pattern Background */}
-            <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 1px 1px, #222 1px, transparent 0)`,
-              backgroundSize: '20px 20px'
-            }} />
-            
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `radial-gradient(circle at 1px 1px, #222 1px, transparent 0)`,
+                backgroundSize: "20px 20px",
+              }}
+            />
+
             <Image
-              src={project.image || '/images/placeholder.jpg'}
+              src={project.image || "/images/placeholder.jpg"}
               alt={project.title}
               className="object-cover rounded-t-2xl relative z-10"
               fill
@@ -120,14 +169,14 @@ const ProjectCard = ({ project }) => {
               priority
             />
           </div>
-          
+
           <div className="p-8 bg-[#FFCC00]">
             <h2 className="text-3xl font-bold text-black mb-4">
               {project.title}
             </h2>
-            
+
             <div className="flex flex-wrap gap-2 mb-6">
-              {project.technologies?.map((tech) => (
+              {project.technologies?.map((tech: string) => (
                 <TechTag key={tech} name={tech} variant="modal" />
               ))}
             </div>
@@ -145,8 +194,10 @@ const ProjectCard = ({ project }) => {
                 >
                   <ExternalLink className="w-5 h-5" />
                   Visit Live Site
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 
-                    group-hover:-translate-y-0.5" />
+                  <ArrowUpRight
+                    className="w-4 h-4 transition-transform group-hover:translate-x-0.5 
+                    group-hover:-translate-y-0.5"
+                  />
                 </a>
               )}
               {project.github && (
@@ -159,16 +210,20 @@ const ProjectCard = ({ project }) => {
                 >
                   <Github className="w-5 h-5" />
                   View Source
-                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 
-                    group-hover:-translate-y-0.5" />
+                  <ArrowUpRight
+                    className="w-4 h-4 transition-transform group-hover:translate-x-0.5 
+                    group-hover:-translate-y-0.5"
+                  />
                 </a>
               )}
-              
+
               {project.articles && project.articles.length > 0 && (
                 <div className="w-full mt-6">
-                  <h3 className="text-xl font-semibold text-black mb-4">Featured Articles</h3>
+                  <h3 className="text-xl font-semibold text-black mb-4">
+                    Featured Articles
+                  </h3>
                   <ul className="space-y-3">
-                    {project.articles.map((article, index) => (
+                    {project.articles.map((article: Article, index: number) => (
                       <li key={index}>
                         <a
                           href={article.link}
@@ -179,8 +234,10 @@ const ProjectCard = ({ project }) => {
                         >
                           <BookOpen className="w-5 h-5" />
                           {article.title}
-                          <ArrowUpRight className="w-4 h-4 transition-transform 
-                            group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          <ArrowUpRight
+                            className="w-4 h-4 transition-transform 
+                            group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          />
                         </a>
                       </li>
                     ))}
