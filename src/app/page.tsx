@@ -6,7 +6,8 @@ import { Footer } from "../app/components/Footer";
 import { Navigation } from "../app/components/Navigation";
 import { ProjectsGrid } from "../app/components/ProjectsGrid";
 import { Technologies } from "../app/components/Technologies";
-import { Hero } from "../app/components/Hero";
+import JobHistory from "../app/components/JobHistory";
+import Hero from "../app/components/Hero";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -52,6 +53,8 @@ export default function Home() {
           </div>
           <Technologies />
         </div>
+
+        <JobHistory />
 
         <div className="relative">
           <div className="absolute inset-0 bg-grid-gray-100 opacity-5" />

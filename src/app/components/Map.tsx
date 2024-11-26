@@ -202,18 +202,17 @@ const Map = () => {
     };
   }, [mounted]);
 
-  return (
-    <div className="relative w-full h-full rounded-lg overflow-hidden bg-black">
+  // Update the return statement in your Map component to use full viewport sizing
+return (
+    <div className="relative w-full h-full bg-black">
       <div 
         ref={mapContainer} 
         className="absolute inset-0"
         style={{ 
           width: '100%',
           height: '100%',
-          minHeight: '400px'
         }}
       />
-      <div className="absolute inset-0 pointer-events-none border-2 border-[#FFCC00] rounded-lg" />
     </div>
   );
 };
