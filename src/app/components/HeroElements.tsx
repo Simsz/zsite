@@ -1,24 +1,19 @@
 //components/HeroElements.tsx
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface FloatingFeatherProps {
   delay: number;
 }
 
 export const GooseSVG = () => (
-  <svg viewBox="0 0 100 100" className="w-16 h-16 text-black">
-    <path
-      fill="currentColor"
-      d="M70,30 Q80,30 85,40 T90,60 Q90,80 70,85 L60,87 Q40,90 30,80 T25,50 Q25,30 40,25 T70,30 Z"
-    />
-    <circle fill="currentColor" cx="75" cy="35" r="2" />
-    <path
-      fill="currentColor"
-      d="M80,38 Q82,39 84,38" 
-      strokeWidth="1"
-      stroke="currentColor"
-    />
-  </svg>
+  <Image
+    src="images/goose.svg"
+    width={256}
+    height={256}
+    alt="Goose"
+    className="text-black transition-transform duration-300"
+  />
 );
 
 export const FloatingFeather = ({ delay }: FloatingFeatherProps) => {

@@ -61,7 +61,7 @@ const JobHistory = () => {
       <div className="relative max-w-7xl mx-auto px-4">
         {/* Section Header */}
         <div className="relative mb-16 inline-block">
-          <h2 className="text-4xl font-black tracking-tight text-black before:absolute before:inset-0 before:bg-black/10 before:translate-x-1 before:translate-y-1 before:-z-10 after:absolute after:inset-0 after:bg-black/5 after:translate-x-2 after:translate-y-2 after:-z-20">
+          <h2 className="text-4xl md:text-4xl font-black tracking-tight text-black before:absolute before:inset-0 before:bg-black/10 before:translate-x-1 before:translate-y-1 before:-z-10 after:absolute after:inset-0 after:bg-black/5 after:translate-x-2 after:translate-y-2 after:-z-20">
             EXPERIENCE
           </h2>
           <div className="absolute -bottom-2 left-0 w-full h-1 bg-black/10" />
@@ -69,74 +69,76 @@ const JobHistory = () => {
         </div>
 
         {/* Timeline */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-5xl mx-auto scale-[0.9] md:scale-100">
           {/* Center Line */}
           <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-black/20 transform -translate-x-1/2" />
 
           {jobs.map((job, index) => (
             <div
               key={index}
-              className={`relative mb-24 last:mb-0 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}
+              className={`relative mb-16 md:mb-24 last:mb-0 ${index % 2 === 0 ? 'text-right' : 'text-left'}`}
               onMouseEnter={() => setActiveJob(index)}
               onMouseLeave={() => setActiveJob(null)}
             >
               {/* Timeline Node */}
               <div 
-                className={`absolute left-1/2 top-0 -translate-x-1/2 w-12 h-12 rounded-full 
+                className={`absolute left-1/2 top-0 -translate-x-1/2 w-10 md:w-12 h-10 md:h-12 rounded-full 
                   bg-black border-4 border-[#FFCC00] shadow-lg
                   transition-all duration-300 z-10
                   ${activeJob === index ? 'scale-110' : 'hover:scale-105'}`}
               >
-                <span className="flex items-center justify-center h-full text-xl">
+                <span className="flex items-center justify-center h-full text-base md:text-xl">
                   {job.icon}
                 </span>
               </div>
 
               {/* Content Card */}
               <div 
-                className={`relative inline-block max-w-xl 
+                className={`relative inline-block max-w-[calc(42vw-2rem)] md:max-w-xl
                   ${index % 2 === 0 
                     ? 'mr-[calc(50%+2rem)] pr-8' 
                     : 'ml-[calc(50%+2rem)] pl-8'}`}
               >
                 <div 
-                  className={`bg-black p-6 rounded-2xl transform transition-all duration-300
+                  className={`bg-black p-4 md:p-6 rounded-2xl transform transition-all duration-300
                     ${activeJob === index 
                       ? `${index % 2 === 0 ? '-translate-x-2' : 'translate-x-2'} shadow-2xl` 
                       : `hover:${index % 2 === 0 ? '-translate-x-1' : 'translate-x-1'} hover:shadow-xl`}
                     relative overflow-hidden group`}
                 >
-                  {/* Corner Decorations */}
-                  <div className={`absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 
+                  {/* Corner Decorations - Hidden on mobile */}
+                  <div className={`hidden md:block absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 
                     ${activeJob === index ? 'border-[#FFCC00]' : 'border-[#FFCC00]/30 group-hover:border-[#FFCC00]'} 
                     transition-all duration-500`} />
-                  <div className={`absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 
+                  <div className={`hidden md:block absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 
                     ${activeJob === index ? 'border-[#FFCC00]' : 'border-[#FFCC00]/30 group-hover:border-[#FFCC00]'} 
                     transition-all duration-500`} />
 
-                  <h3 className="text-xl font-bold text-[#FFCC00] mb-1">{job.role}</h3>
-                  <div className={`flex items-center gap-2 text-[#FFCC00]/70 mb-3 
+                  <h3 className="text-base md:text-xl font-bold text-[#FFCC00] mb-1">{job.role}</h3>
+                  <div className={`flex items-center gap-1 md:gap-2 text-[#FFCC00]/70 mb-2 md:mb-3 
                     ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-                    <Building2 className="w-4 h-4" />
-                    <span>{job.company}</span>
+                    <Building2 className="w-3 h-3 md:w-4 md:h-4" />
+                    <span className="text-xs md:text-base">{job.company}</span>
                   </div>
                   
-                  <div className={`flex items-center gap-2 text-[#FFCC00]/70 mb-4
+                  <div className={`flex items-center gap-1 md:gap-2 text-[#FFCC00]/70 mb-2 md:mb-4
                     ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
-                    <Calendar className="w-4 h-4" />
-                    <span>{job.period}</span>
+                    <Calendar className="w-3 h-3 md:w-4 md:h-4" />
+                    <span className="text-xs md:text-base">{job.period}</span>
                   </div>
 
-                  <p className={`text-[#FFCC00]/80 mb-4 transition-colors duration-300
+                  {/* Description - Hidden on mobile */}
+                  <p className={`hidden md:block text-base text-[#FFCC00]/80 mb-4 transition-colors duration-300
                     ${activeJob === index ? 'text-[#FFCC00]' : ''}`}>
                     {job.description}
                   </p>
 
-                  <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
+                  {/* Technologies - Hidden on mobile */}
+                  <div className={`hidden md:flex flex-wrap gap-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
                     {job.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className={`px-3 py-1 text-xs font-medium rounded-full border
+                        className={`px-3 py-1 text-sm font-medium rounded-full border
                           transition-all duration-300
                           ${activeJob === index 
                             ? 'bg-[#FFCC00]/20 text-[#FFCC00] border-[#FFCC00]/40' 
