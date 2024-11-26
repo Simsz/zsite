@@ -1,6 +1,6 @@
 //components/HeroElements.tsx
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface FloatingFeatherProps {
   delay: number;
@@ -9,8 +9,8 @@ interface FloatingFeatherProps {
 export const GooseSVG = () => (
   <Image
     src="images/goose.svg"
-    width={256}
-    height={256}
+    width={150}
+    height={150}
     alt="Goose"
     className="text-black transition-transform duration-300"
   />
@@ -22,24 +22,21 @@ export const FloatingFeather = ({ delay }: FloatingFeatherProps) => {
   useEffect(() => {
     setPosition({
       left: Math.random() * 100,
-      top: Math.random() * 100
+      top: Math.random() * 100,
     });
   }, []);
 
   return (
-    <div 
+    <div
       className="absolute animate-float opacity-20"
-      style={{ 
+      style={{
         animationDelay: `${delay}s`,
         left: `${position.left}%`,
-        top: `${position.top}%`
+        top: `${position.top}%`,
       }}
     >
       <svg viewBox="0 0 50 50" className="w-8 h-8 text-black rotate-45">
-        <path
-          fill="currentColor"
-          d="M25,0 Q50,25 25,50 Q0,25 25,0"
-        />
+        <path fill="currentColor" d="M25,0 Q50,25 25,50 Q0,25 25,0" />
       </svg>
     </div>
   );

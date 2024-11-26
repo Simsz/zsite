@@ -55,9 +55,10 @@ const TechTag = ({ name, variant = "default" }: TechTagProps) => (
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   const [showModal, setShowModal] = useState(false);
-  
+
   // Use shortDescription if provided, otherwise truncate the full description
-  const cardDescription = project.shortDescription || truncateText(project.description);
+  const cardDescription =
+    project.shortDescription || truncateText(project.description);
 
   return (
     <>

@@ -23,7 +23,13 @@ interface Category {
   id: string;
 }
 
-const CategoryButton = ({ color, hoverColor, label, onHover, onLeave }: CategoryButtonProps) => (
+const CategoryButton = ({
+  color,
+  hoverColor,
+  label,
+  onHover,
+  onLeave,
+}: CategoryButtonProps) => (
   <button
     onMouseEnter={() => onHover(label.toLowerCase())}
     onMouseLeave={() => onLeave()}

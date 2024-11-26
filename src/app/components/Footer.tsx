@@ -100,7 +100,24 @@ const Footer = () => {
             </p>
             {/* Map Attribution */}
             <p className="text-[#FFCC00]/60 text-sm">
-              Map data © <a href="https://www.maptiler.com" className="hover:text-[#FFCC00]" target="_blank" rel="noopener noreferrer">MapTiler</a> © <a href="https://www.openstreetmap.org/copyright" className="hover:text-[#FFCC00]" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>
+              Map data ©{" "}
+              <a
+                href="https://www.maptiler.com"
+                className="hover:text-[#FFCC00]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                MapTiler
+              </a>{" "}
+              ©{" "}
+              <a
+                href="https://www.openstreetmap.org/copyright"
+                className="hover:text-[#FFCC00]"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                OpenStreetMap contributors
+              </a>
             </p>
           </div>
           <div className="flex gap-6">

@@ -1,16 +1,25 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GithubIcon, Mail, FileText, Menu, X, Briefcase } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navLinks = [
     {
-      href: "https://github.com/yourusername",
-      label: "GitHub",
-      icon: GithubIcon,
-      style: "filled",
+      href: "/hire-me",
+      label: "Hire Me",
+      icon: Briefcase,
+      style: "primary",
     },
     {
       href: "/contact",
@@ -25,10 +34,10 @@ const Navigation = () => {
       style: "outline",
     },
     {
-      href: "/hire-me",
-      label: "Hire Me",
-      icon: Briefcase,
-      style: "primary",
+      href: "https://github.com/Simsz",
+      label: "GitHub",
+      icon: GithubIcon,
+      style: "outline",
     },
   ];
 
@@ -39,15 +48,26 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="w-full py-6 absolute top-0 z-50">
+      <nav
+        className={`w-full py-4 fixed top-0 z-50 transition-all duration-300
+          ${
+            isScrolled
+              ? "bg-[#FFCC00] shadow-lg backdrop-blur-sm bg-opacity-90"
+              : "bg-transparent"
+          }`}
+      >
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-center relative z-50">
             {/* Logo/Home Link */}
             <Link
               href="/"
-              className="text-black font-bold text-2xl hover:opacity-80 transition-opacity"
+              className={`text-black font-bold text-2xl transition-all duration-300 ${
+                isScrolled
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 -translate-y-4 pointer-events-none"
+              }`}
             >
-              tiny.dev
+              Zach Sims
             </Link>
 
             {/* Desktop Navigation */}

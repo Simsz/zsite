@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import maplibregl from 'maplibre-gl';
-import 'maplibre-gl/dist/maplibre-gl.css';
+import { useEffect, useRef, useState } from "react";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
 
 interface PulsingDot {
   width: number;
@@ -33,14 +33,14 @@ const Map = () => {
       data: new Uint8Array(size * size * 4),
       context: null,
 
-      onAdd: function() {
-        const canvas = document.createElement('canvas');
+      onAdd: function () {
+        const canvas = document.createElement("canvas");
         canvas.width = this.width;
         canvas.height = this.height;
-        this.context = canvas.getContext('2d', { willReadFrequently: true });
+        this.context = canvas.getContext("2d", { willReadFrequently: true });
       },
 
-      render: function() {
+      render: function () {
         const duration = 1000;
         const t = (performance.now() % duration) / duration;
 
@@ -58,21 +58,15 @@ const Map = () => {
           this.height / 2,
           outerRadius,
           0,
-          Math.PI * 2
+          Math.PI * 2,
         );
         context.fillStyle = `rgba(255, 204, 0, ${1 - t})`;
         context.fill();
 
         context.beginPath();
-        context.arc(
-          this.width / 2,
-          this.height / 2,
-          radius,
-          0,
-          Math.PI * 2
-        );
-        context.fillStyle = 'rgba(255, 204, 0, 1)';
-        context.strokeStyle = 'white';
+        context.arc(this.width / 2, this.height / 2, radius, 0, Math.PI * 2);
+        context.fillStyle = "rgba(255, 204, 0, 1)";
+        context.strokeStyle = "white";
         context.lineWidth = 2 + 4 * (1 - t);
         context.fill();
         context.stroke();
@@ -83,7 +77,7 @@ const Map = () => {
         mapInstance.current?.triggerRepaint();
 
         return true;
-      }
+      },
     };
 
     try {
@@ -94,85 +88,85 @@ const Map = () => {
         style: `https://api.maptiler.com/maps/68c36fb5-b518-4988-a283-5a8d97e88ba0/style.json?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
         center: [-77.6109, 43.1566],
         zoom: 3,
-        attributionControl: false
+        attributionControl: false,
       });
 
       mapInstance.current = map;
 
-      map.on('load', () => {
+      map.on("load", () => {
         if (!mapInstance.current) return;
-        
-        map.addImage('pulsing-dot', pulsingDot, { pixelRatio: 2 });
+
+        map.addImage("pulsing-dot", pulsingDot, { pixelRatio: 2 });
 
         // Add location point source
-        map.addSource('location-point', {
-          type: 'geojson',
+        map.addSource("location-point", {
+          type: "geojson",
           data: {
-            type: 'FeatureCollection',
+            type: "FeatureCollection",
             features: [
               {
-                type: 'Feature',
+                type: "Feature",
                 geometry: {
-                  type: 'Point',
-                  coordinates: [-77.6109, 43.1566]
+                  type: "Point",
+                  coordinates: [-77.6109, 43.1566],
                 },
-                properties: {}
-              }
-            ]
-          }
+                properties: {},
+              },
+            ],
+          },
         });
 
         // Add Rochester label source
-        map.addSource('rochester-label', {
-          type: 'geojson',
+        map.addSource("rochester-label", {
+          type: "geojson",
           data: {
-            type: 'FeatureCollection',
+            type: "FeatureCollection",
             features: [
               {
-                type: 'Feature',
+                type: "Feature",
                 geometry: {
-                  type: 'Point',
-                  coordinates: [-77.6109, 43.165]
+                  type: "Point",
+                  coordinates: [-77.6109, 43.165],
                 },
                 properties: {
-                  title: 'Rochester, NY'
-                }
-              }
-            ]
-          }
+                  title: "Rochester, NY",
+                },
+              },
+            ],
+          },
         });
 
         // Add the pulsing dot layer
         map.addLayer({
-          id: 'location',
-          type: 'symbol',
-          source: 'location-point',
+          id: "location",
+          type: "symbol",
+          source: "location-point",
           layout: {
-            'icon-image': 'pulsing-dot',
-            'icon-allow-overlap': true,
-            'icon-size': 0.9
-          }
+            "icon-image": "pulsing-dot",
+            "icon-allow-overlap": true,
+            "icon-size": 0.9,
+          },
         });
 
         // Add Rochester label layer
         map.addLayer({
-          id: 'rochester-label',
-          type: 'symbol',
-          source: 'rochester-label',
+          id: "rochester-label",
+          type: "symbol",
+          source: "rochester-label",
           layout: {
-            'text-field': ['get', 'title'],
-            'text-size': 20,
-            'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-            'text-anchor': 'bottom',
-            'text-offset': [0, -1],
-            'text-allow-overlap': true
+            "text-field": ["get", "title"],
+            "text-size": 20,
+            "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
+            "text-anchor": "bottom",
+            "text-offset": [0, -1],
+            "text-allow-overlap": true,
           },
           paint: {
-            'text-color': '#FFCC00',
-            'text-halo-color': '#000000',
-            'text-halo-width': 2,
-            'text-halo-blur': 1
-          }
+            "text-color": "#FFCC00",
+            "text-halo-color": "#000000",
+            "text-halo-width": 2,
+            "text-halo-blur": 1,
+          },
         });
 
         // Faster zoom animation
@@ -182,16 +176,15 @@ const Map = () => {
           speed: 1.2,
           curve: 1.5,
           essential: true,
-          duration: 2000
+          duration: 2000,
         });
       });
 
-      map.on('error', (e) => {
-        console.error('Map error:', e);
+      map.on("error", (e) => {
+        console.error("Map error:", e);
       });
-
     } catch (error) {
-      console.error('Error creating map:', error);
+      console.error("Error creating map:", error);
     }
 
     return () => {
@@ -203,14 +196,14 @@ const Map = () => {
   }, [mounted]);
 
   // Update the return statement in your Map component to use full viewport sizing
-return (
+  return (
     <div className="relative w-full h-full bg-black">
-      <div 
-        ref={mapContainer} 
+      <div
+        ref={mapContainer}
         className="absolute inset-0"
-        style={{ 
-          width: '100%',
-          height: '100%',
+        style={{
+          width: "100%",
+          height: "100%",
         }}
       />
     </div>

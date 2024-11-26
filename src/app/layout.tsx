@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Toaster } from "@/app/components/ui/toaster"
+import { Toaster } from "@/app/components/ui/toaster";
 import localFont from "next/font/local";
 import "./globals.css";
 
