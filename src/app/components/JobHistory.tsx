@@ -16,25 +16,25 @@ const JobHistory = () => {
 
   const jobs: Job[] = [
     {
-      company: "Tech Corp",
-      role: "Senior Full Stack Developer",
-      period: "2022 - Present",
+      company: "YPC Media",
+      role: "Senior Developer",
+      period: "2023 - Present",
       description:
-        "Leading development of enterprise-scale applications and mentoring junior developers.",
+        "Lead developer on all internal projects and client-facing applications. Sole developer on custom analytics software that integrated with Zoho.",
       achievements: [
-        "Reduced deployment time by 60% through CI/CD pipeline optimization",
-        "Implemented new microservices architecture",
-        "Led team of 5 developers on major platform redesign",
+        "Developed custom analytics software for management to track KPIs of sales team built on top of Zoho CRM",
+        "Managed and maintained 400+ client-facing websites",
+        "Developed custom WordPress plugin (PHP) to synchronize the asset cache across all sites.",
       ],
-      technologies: ["React", "Node.js", "AWS", "TypeScript"],
+      technologies: ["React", "PHP", "JS", "Deluge"],
       icon: "👨‍💻",
     },
     {
-      company: "StartUp Inc",
-      role: "Full Stack Developer",
-      period: "2020 - 2022",
+      company: "Celik Enterprises Inc.",
+      role: "Developer + Community Manager",
+      period: "2018 - Present",
       description:
-        "Developed and maintained multiple client-facing applications.",
+        "Developed custom applications (ProCity) and enhanced community engagment through data-driven analytics.",
       achievements: [
         "Increased user engagement by 40% through UI/UX improvements",
         "Built real-time analytics dashboard",
@@ -44,9 +44,35 @@ const JobHistory = () => {
       icon: "🚀",
     },
     {
-      company: "Digital Agency",
-      role: "Frontend Developer",
-      period: "2018 - 2020",
+      company: "Excellus BlueCross BlueShield",
+      role: "Digital Developer I",
+      period: "2022 - 2023",
+      description: "Created responsive web applications for various clients.",
+      achievements: [
+        "Delivered 20+ client projects on time and within budget",
+        "Implemented component library reducing development time by 30%",
+        "Mentored 3 junior developers",
+      ],
+      technologies: ["React", "JavaScript", "SASS", "Git"],
+      icon: "🎨",
+    },
+    {
+      company: "CGI Digital",
+      role: "Web Developer",
+      period: "2021 - 2022",
+      description: "Created responsive web applications for various clients.",
+      achievements: [
+        "Delivered 20+ client projects on time and within budget",
+        "Implemented component library reducing development time by 30%",
+        "Mentored 3 junior developers",
+      ],
+      technologies: ["React", "JavaScript", "SASS", "Git"],
+      icon: "🎨",
+    },
+    {
+      company: "Eagledream Technologies",
+      role: "DevOps Web Developer",
+      period: "2019 - 2020",
       description: "Created responsive web applications for various clients.",
       achievements: [
         "Delivered 20+ client projects on time and within budget",
