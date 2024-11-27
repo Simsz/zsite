@@ -145,8 +145,9 @@ const Technologies = () => {
           <h2 className="text-4xl font-black tracking-tight text-[#FFCC00] before:absolute before:inset-0 before:bg-[#FFCC00]/10 before:translate-x-1 before:translate-y-1 before:-z-10 after:absolute after:inset-0 after:bg-[#FFCC00]/5 after:translate-x-2 after:translate-y-2 after:-z-20">
             TECHNOLOGIES
           </h2>
-          <div className="absolute -bottom-2 left-0 w-full h-1 bg-white/10" />
+          
           <div className="absolute -bottom-2 left-0 w-1/3 h-1 bg-[#FFCC00] animate-slide-right" />
+          <div className="absolute -bottom-2 left-0 w-full h-1 bg-white/5" />
         </div>
 
         {/* Mobile Category Legend */}

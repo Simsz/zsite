@@ -28,9 +28,9 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <div className="relative bg-[#FFCC00] h-[80vh] min-h-[440px] mobile:min-h-[450px] medium:min-h-[790px] short:min-h-[790px]">
-  <Navigation />
-  <Hero />
-</div>
+        <Navigation />
+        <Hero />
+      </div>
 
       <main className="bg-black text-[#FFCC00]">
         <div className="relative overflow-hidden">

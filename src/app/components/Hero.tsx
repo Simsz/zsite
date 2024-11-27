@@ -50,8 +50,8 @@ const Hero = () => {
         </div>
       </div>
       <div className="text-sm text-black/60">
-        Am I awake? Check the status above to see if I&apos;m available for a
-        chat.
+        Am I awake? Check my status and local time to see if I&apos;m available
+        for a chat.
       </div>
     </div>
   );
@@ -118,43 +118,48 @@ const Hero = () => {
 
           {/* Medium viewport layout */}
           <div className="hidden medium:block">
-            <div className="grid grid-cols-2 gap-8 items-start pt-4">
-              <div className="relative">
-                <div className="p-6 rounded-2xl">
-                  <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-black">
-                    Hi, I&apos;m Zach
-                  </h1>
-                  <p className="text-xl lg:text-2xl text-black/80 mb-8 leading-relaxed">
-                    I&apos;m a developer who loves creating elegant solutions
-                    and has a peculiar fascination with geese. When I&apos;m not
-                    coding, you might find me bird watching or optimizing server
-                    deployments.
-                  </p>
-                  <div className="flex flex-wrap gap-4 text-lg">
-                    {["Full-Stack", "AWS Certified", "7+ YOE"].map(
-                      (tech, i) => (
-                        <span
-                          key={i}
-                          className="px-4 py-2 bg-black text-[#FFCC00] rounded-full shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
-                        >
-                          {tech}
-                        </span>
-                      ),
-                    )}
+            <div className="grid grid-cols-2 gap-8">
+              <div className="flex flex-col">
+                <div className="relative flex-1">
+                  <div className="p-6 rounded-2xl h-full flex flex-col justify-between">
+                    <div>
+                      <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-black">
+                        Hi, I&apos;m Zach
+                      </h1>
+                      <p className="text-xl lg:text-2xl text-black/80 mb-8 leading-relaxed">
+                        I&apos;m a developer who loves creating elegant
+                        solutions and has a peculiar fascination with geese.
+                        When I&apos;m not coding, you might find me bird
+                        watching or optimizing server deployments.
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-4 text-lg">
+                      {["Full-Stack", "AWS Certified", "7+ YOE"].map(
+                        (tech, i) => (
+                          <span
+                            key={i}
+                            className="px-4 py-2 bg-black text-[#FFCC00] rounded-full shadow-sm hover:shadow-md transition-all duration-300 cursor-default"
+                          >
+                            {tech}
+                          </span>
+                        ),
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <div className="flex flex-col gap-8 items-center">
-                <div className="flex justify-center w-full">
+              <div className="flex flex-col">
+                <div className="flex justify-center pt-10">
                   <div className="transform hover:scale-110 transition-transform duration-300">
                     <GooseSVG />
                   </div>
                 </div>
-                <StatusDisplay />
+                <div className="flex-1"></div>
+                <div className="w-full pr-4">
+                  <StatusDisplay />
+                </div>
               </div>
             </div>
-
             {/* Full-width map section for medium height */}
             <div className="w-full px-4 pb-8 mt-4">
               <div

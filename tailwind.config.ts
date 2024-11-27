@@ -67,9 +67,11 @@ export default {
       },
       screens: {
         tall: { raw: "(min-height: 1280px) and (min-width: 950px)" },
-        medium: { raw: "(min-height: 760px) and (max-height: 1279px) and (min-width: 750px)" },
+        medium: {
+          raw: "(min-height: 760px) and (max-height: 1279px) and (min-width: 750px)",
+        },
         short: { raw: "(min-width: 750px) and (max-height: 759px)" },
-        mobile: { raw: "(max-width: 749px)" }
+        mobile: { raw: "(max-width: 749px)" },
       },
     },
   },
