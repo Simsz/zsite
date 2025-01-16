@@ -16,19 +16,19 @@ const Navigation = () => {
 
   const navLinks = [
     {
-      href: "/hire-me",
+      href: "https://www.linkedin.com/in/zachesims/",
       label: "Hire Me",
       icon: Briefcase,
       style: "primary",
     },
     {
-      href: "/contact",
+      href: "https://www.linkedin.com/in/zachesims/",
       label: "Contact",
       icon: Mail,
       style: "outline",
     },
     {
-      href: "/resume",
+      href: "/images/Resume_2024.pdf",
       label: "Resume",
       icon: FileText,
       style: "outline",

@@ -69,11 +69,11 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10">
-        <div className="relative">
+        {/* <div className="relative">
           {[...Array(5)].map((_, i) => (
             <FloatingFeather key={i} delay={i * 2} />
           ))}
-        </div>
+        </div> */}
 
         <div className="max-w-7xl mx-auto px-4 pt-20">
           {/* Tall viewport layout */}

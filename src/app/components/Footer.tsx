@@ -10,22 +10,22 @@ import {
 const Footer = () => {
   const socialLinks = [
     {
-      href: "https://github.com/yourusername",
+      href: "https://github.com/Simsz/",
       icon: GithubIcon,
       label: "GitHub",
     },
     {
-      href: "https://twitter.com/yourusername",
+      href: "https://bsky.app/profile/tiny.pm",
       icon: Twitter,
-      label: "Twitter",
+      label: "BlueSky",
     },
     {
-      href: "https://linkedin.com/in/yourusername",
+      href: "https://www.linkedin.com/in/zachesims/",
       icon: Linkedin,
       label: "LinkedIn",
     },
     {
-      href: "mailto:you@email.com",
+      href: "mailto:hello@tiny.pm",
       icon: Mail,
       label: "Email",
     },
@@ -41,7 +41,7 @@ const Footer = () => {
               href="/"
               className="text-2xl font-bold hover:opacity-80 transition-opacity inline-block"
             >
-              tiny.dev
+              zachsi.ms/
             </Link>
             <p className="text-[#FFCC00]/80">
               Creating elegant solutions with a peculiar fascination for geese.
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Quick Links</h3>
+            {/* <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               {[
                 { label: "About", href: "/about" },
@@ -68,7 +68,7 @@ const Footer = () => {
                   </Link>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           {/* Social Links */}
@@ -96,7 +96,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-[#FFCC00]/20 flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex flex-col md:flex-row gap-4 items-center">
             <p className="text-[#FFCC00]/80 text-sm">
-              &copy; {new Date().getFullYear()} tiny.dev. All rights reserved.
+              &copy; {new Date().getFullYear()} zachsi.ms All rights reserved.
             </p>
             {/* Map Attribution */}
             <p className="text-[#FFCC00]/60 text-sm">
@@ -120,7 +120,7 @@ const Footer = () => {
               </a>
             </p>
           </div>
-          <div className="flex gap-6">
+          {/* <div className="flex gap-6">
             <Link
               href="/privacy"
               className="text-sm text-[#FFCC00]/80 hover:text-[#FFCC00] transition-colors"
@@ -133,7 +133,7 @@ const Footer = () => {
             >
               Terms of Service
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

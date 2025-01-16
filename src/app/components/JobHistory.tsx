@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Building2 } from "lucide-react";
+import { Calendar, Building2, ChevronDown } from "lucide-react";
 
 interface Job {
   company: string;
@@ -9,10 +9,16 @@ interface Job {
   achievements: string[];
   technologies: string[];
   icon?: string;
+  logoUrl?: string;
 }
 
 const JobHistory = () => {
   const [activeJob, setActiveJob] = useState<number | null>(null);
+  const [expandedJob, setExpandedJob] = useState<number | null>(null);
+
+  const toggleJob = (index: number) => {
+    setExpandedJob(expandedJob === index ? null : index);
+  };
 
   const jobs: Job[] = [
     {
@@ -20,67 +26,73 @@ const JobHistory = () => {
       role: "Senior Developer",
       period: "2023 - Present",
       description:
-        "Lead developer on all internal projects and client-facing applications. Sole developer on custom analytics software that integrated with Zoho.",
+        "Led development of analytics and automation tools while managing backend infrastructure for 400+ customer websites. Engineered custom WordPress and CRM solutions to optimize sales operations and site performance.",
       achievements: [
         "Developed custom analytics software for management to track KPIs of sales team built on top of Zoho CRM",
         "Managed and maintained 400+ client-facing websites",
         "Developed custom WordPress plugin (PHP) to synchronize the asset cache across all sites.",
       ],
-      technologies: ["React", "PHP", "JS", "Deluge"],
+      technologies: ["Zoho CMS", "PHP", "React", "Deluge", "WordPress"],
       icon: "👨‍💻",
+      logoUrl: "/images/ypcmedia.png",
     },
     {
       company: "Celik Enterprises Inc.",
       role: "Developer + Community Manager",
       period: "2018 - Present",
       description:
-        "Developed custom applications (ProCity) and enhanced community engagment through data-driven analytics.",
+        "Directed community growth strategy and operations for a top global Twitch streamer, driving 35% increase in member engagement through data-driven events and content. Led development initiatives and managed contractor teams while maintaining positive relations across a 3-million-member community.",
       achievements: [
         "Increased user engagement by 40% through UI/UX improvements",
         "Built real-time analytics dashboard",
         "Optimized database queries reducing load times by 50%",
       ],
-      technologies: ["Vue.js", "Python", "Docker", "PostgreSQL"],
-      icon: "🚀",
+      technologies: ["Discord API", "Reddit API", "UX/UI Design Tools", "Docker", "Community Management Platforms"],
+      icon: "🎮",
+      logoUrl: "/images/celikenterprises.png",
+      
     },
     {
       company: "Excellus BlueCross BlueShield",
       role: "Digital Developer I",
       period: "2022 - 2023",
-      description: "Created responsive web applications for various clients.",
+      description: "Led development and maintenance of four corporate healthcare websites with mobile-first design principles. Optimized user experience through consumer feedback analysis while building comprehensive documentation and cloud infrastructure.",
       achievements: [
         "Delivered 20+ client projects on time and within budget",
         "Implemented component library reducing development time by 30%",
         "Mentored 3 junior developers",
       ],
-      technologies: ["React", "JavaScript", "SASS", "Git"],
-      icon: "🎨",
+      technologies: ["S3", "Route53", "Lambda", "JavaScript", "Mobile-First Design"],
+      icon: "🏥",
+      logoUrl: "/images/bcbs.png",
     },
     {
       company: "CGI Digital",
       role: "Web Developer",
       period: "2021 - 2022",
-      description: "Created responsive web applications for various clients.",
+      description: "Led development and maintenance of 1,900+ client websites while spearheading automation initiatives and cloud-based solutions. Architected custom internal tools and video rendering systems, ensuring AAA accessibility standards across all properties.",
       achievements: [
         "Delivered 20+ client projects on time and within budget",
         "Implemented component library reducing development time by 30%",
         "Mentored 3 junior developers",
       ],
-      technologies: ["React", "JavaScript", "SASS", "Git"],
-      icon: "🎨",
+      technologies: ["AWS", "JS", "NexRender", "Git", "Wordpress", "PHP", "Adobe Suite"],
+      icon: "🎥",
+      logoUrl: "/images/cgidigital.jpeg",
     },
     {
       company: "Eagledream Technologies",
       role: "DevOps Web Developer",
       period: "2019 - 2020",
-      description: "Created responsive web applications for various clients.",
+      description: "Developed and deployed web applications in an Agile environment while managing client relationships and project lifecycles. Built and maintained containerized infrastructure across multiple environments, ensuring seamless delivery of client solutions.",
       achievements: [
         "Delivered 20+ client projects on time and within budget",
         "Implemented component library reducing development time by 30%",
         "Mentored 3 junior developers",
       ],
-      technologies: ["React", "JavaScript", "SASS", "Git"],
-      icon: "🎨",
+      technologies: ["CraftCMS", "AWS", "Fargate", "CodeCommit", "Agile/Scrum", "Docker"],
+      icon: "🦅",
+      logoUrl: "/images/eagledream.png",
     },
   ];
 
@@ -123,20 +135,23 @@ const JobHistory = () => {
               {/* Content Card */}
               <div
                 className={`relative inline-block max-w-[calc(42vw-2rem)] md:max-w-xl
-                  ${
-                    index % 2 === 0
-                      ? "mr-[calc(50%+2rem)] pr-8"
-                      : "ml-[calc(50%+2rem)] pl-8"
-                  }`}
+                  ${index % 2 === 0 ? "mr-[calc(50%+2rem)] pr-8" : "ml-[calc(50%+2rem)] pl-8"}`}
               >
                 <div
                   className={`bg-black p-4 md:p-6 rounded-2xl transform transition-all duration-300
-                    ${
-                      activeJob === index
-                        ? `${index % 2 === 0 ? "-translate-x-2" : "translate-x-2"} shadow-2xl`
-                        : `hover:${index % 2 === 0 ? "-translate-x-1" : "translate-x-1"} hover:shadow-xl`
+                    ${activeJob === index
+                      ? `${index % 2 === 0 ? "-translate-x-2" : "translate-x-2"} shadow-2xl`
+                      : `hover:${index % 2 === 0 ? "-translate-x-1" : "translate-x-1"} hover:shadow-xl`
                     }
                     relative overflow-hidden group`}
+                  onMouseEnter={() => {
+                    setActiveJob(index);
+                    setExpandedJob(index);
+                  }}
+                  onMouseLeave={() => {
+                    setActiveJob(null);
+                    setExpandedJob(null);
+                  }}
                 >
                   {/* Corner Decorations - Hidden on mobile */}
                   <div
@@ -150,62 +165,63 @@ const JobHistory = () => {
                     transition-all duration-500`}
                   />
 
-                  <h3 className="text-base md:text-xl font-bold text-[#FFCC00] mb-1">
-                    {job.role}
-                  </h3>
-                  <div
-                    className={`flex items-center gap-1 md:gap-2 text-[#FFCC00]/70 mb-2 md:mb-3 
-                    ${index % 2 === 0 ? "justify-end" : "justify-start"}`}
-                  >
-                    <Building2 className="w-3 h-3 md:w-4 md:h-4" />
-                    <span className="text-xs md:text-base">{job.company}</span>
+                  {/* Basic Info - Always Visible */}
+                  <div className="flex flex-col">
+                    <div className={`flex items-center gap-2 mb-2 ${index % 2 === 0 ? "flex-row-reverse" : "flex-row"}`}>
+                      {job.logoUrl && (
+                        <img 
+                          src={job.logoUrl} 
+                          alt={`${job.company} logo`} 
+                          className="w-12 h-12 md:w-16 md:h-16 object-contain rounded-full border-2 border-[#FFCC00] p-1 bg-white"
+                        />
+                      )}
+                      <div className="flex-1">
+                        <h3 className={`text-base md:text-xl font-bold text-[#FFCC00] ${index % 2 === 0 ? "text-right" : "text-left"}`}>
+                          {job.role}
+                        </h3>
+                        <div className={`flex items-center gap-1 md:gap-2 text-[#FFCC00]/70
+                          ${index % 2 === 0 ? "justify-end" : "justify-start"}`}
+                        >
+                          <Building2 className="w-3 h-3 md:w-4 md:h-4" />
+                          <span className="text-xs md:text-base">{job.company}</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className={`flex items-center gap-1 md:gap-2 text-[#FFCC00]/70 mb-2
+                      ${index % 2 === 0 ? "justify-end" : "justify-start"}`}
+                    >
+                      <Calendar className="w-3 h-3 md:w-4 md:h-4" />
+                      <span className="text-xs md:text-base">{job.period}</span>
+                    </div>
                   </div>
 
+                  {/* Expandable Content - Desktop Only */}
                   <div
-                    className={`flex items-center gap-1 md:gap-2 text-[#FFCC00]/70 mb-2 md:mb-4
-                    ${index % 2 === 0 ? "justify-end" : "justify-start"}`}
+                    className={`hidden md:block overflow-hidden transition-all duration-500 ease-in-out
+                      ${activeJob === index ? "max-h-[500px] mt-4 opacity-100" : "max-h-0 opacity-0"}`}
                   >
-                    <Calendar className="w-3 h-3 md:w-4 md:h-4" />
-                    <span className="text-xs md:text-base">{job.period}</span>
-                  </div>
+                    <p className="text-base text-[#FFCC00]/80 mb-4">
+                      {job.description}
+                    </p>
 
-                  {/* Description - Hidden on mobile */}
-                  <p
-                    className={`hidden md:block text-base text-[#FFCC00]/80 mb-4 transition-colors duration-300
-                    ${activeJob === index ? "text-[#FFCC00]" : ""}`}
-                  >
-                    {job.description}
-                  </p>
-
-                  {/* Technologies - Hidden on mobile */}
-                  <div
-                    className={`hidden md:flex flex-wrap gap-2 ${index % 2 === 0 ? "justify-end" : "justify-start"}`}
-                  >
-                    {job.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className={`px-3 py-1 text-sm font-medium rounded-full border
-                          transition-all duration-300
-                          ${
-                            activeJob === index
-                              ? "bg-[#FFCC00]/20 text-[#FFCC00] border-[#FFCC00]/40"
-                              : "bg-[#FFCC00]/10 text-[#FFCC00] border-[#FFCC00]/20 hover:border-[#FFCC00]/40"
-                          }`}
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    <div className={`flex flex-wrap gap-2 ${index % 2 === 0 ? "justify-end" : "justify-start"}`}>
+                      {job.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-3 py-1 text-sm font-medium rounded-full border bg-[#FFCC00]/10 text-[#FFCC00] border-[#FFCC00]/20 hover:border-[#FFCC00]/40"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 {/* Connector Line */}
                 <div
                   className={`absolute top-6 w-8 h-0.5 bg-black/20
-                    ${
-                      index % 2 === 0
-                        ? "right-0 translate-x-8"
-                        : "left-0 -translate-x-8"
-                    }`}
+                    ${index % 2 === 0 ? "right-0 translate-x-8" : "left-0 -translate-x-8"}`}
                 />
               </div>
             </div>
