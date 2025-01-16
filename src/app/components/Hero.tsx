@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { GooseSVG, FloatingFeather } from "./HeroElements";
+// import { GooseSVG, FloatingFeather } from "./HeroElements";
+import { GooseSVG } from "./HeroElements";
 import { Clock, MapPin } from "lucide-react";
 import dynamic from "next/dynamic";
 

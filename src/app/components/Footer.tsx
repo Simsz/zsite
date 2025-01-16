@@ -4,7 +4,6 @@ import {
   Twitter,
   Linkedin,
   Mail,
-  ArrowUpRight,
 } from "lucide-react";
 
 const Footer = () => {

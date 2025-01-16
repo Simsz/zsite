@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Building2, ChevronDown } from "lucide-react";
+import { Calendar, Building2 } from "lucide-react";
 
 interface Job {
   company: string;
@@ -15,10 +15,6 @@ interface Job {
 const JobHistory = () => {
   const [activeJob, setActiveJob] = useState<number | null>(null);
   const [expandedJob, setExpandedJob] = useState<number | null>(null);
-
-  const toggleJob = (index: number) => {
-    setExpandedJob(expandedJob === index ? null : index);
-  };
 
   const jobs: Job[] = [
     {
