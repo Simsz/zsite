@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Toaster } from "@/app/components/ui/toaster";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -14,14 +14,18 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+export const viewport: Viewport = {
+  themeColor: '#ffcc00',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Zach Sims Portfolio",
   description: "It's me, Zach!",
   icons: {
     icon: '/favicon.ico',
   },
-  themeColor: '#ffcc00',
-  viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
 };
 
 export default function RootLayout({
@@ -33,7 +37,6 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ backgroundColor: '#ffcc00' }}
       >
         {children}
         <Toaster />
