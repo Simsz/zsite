@@ -14,7 +14,8 @@ interface Job {
 
 const JobHistory = () => {
   const [activeJob, setActiveJob] = useState<number | null>(null);
-  const [expandedJob, setExpandedJob] = useState<number | null>(null);
+  const [, setExpandedJob] = useState<number | null>(null);
+
 
   const jobs: Job[] = [
     {
