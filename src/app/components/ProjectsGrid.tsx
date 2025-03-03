@@ -6,7 +6,7 @@ const ProjectsGrid = () => {
   const projects = [
     {
       title: "TinyPM Link's",
-      description: "One place to share all your links! Custom, secure and easy to use. Fully production ready and open source utility.",
+      description: "One place to share all your links! Features a bring-your-own-domain (BYOD) feature with on-demand TLS, allowing you to use your own domain for your links",
       shortDescription: "Custom link in bio tool.",
       image: "/images/tinypm2.png",
       technologies: ["Docker", "Caddy", "React", "Supabase", "PostgresSQL", "TailwindCSS", "Next.js", "Typescript", "OAUTH"],
@@ -14,12 +14,12 @@ const ProjectsGrid = () => {
       link: "https://tiny.pm/",
     },
     {
-      title: "Martine",
-      description: "Proof of concept website for a local bar featuring a fun roulette drink picker and dynamic menu. Built with modern web technologies and leveraging headless CMS for content management.",
+      title: "Photography Gallery",
+      description: "Hosted locally w/ Portainer, Docker + PhotoPrism. Just a simple way to view photos I've taken.",
       shortDescription: "Interactive bar website with dynamic features.",
-      image: "/images/martine.png",
-      technologies: ["Astro", "React", "TailwindCSS", "CraftCMS"],
-      link: "https://martine.tiny.pm",
+      image: "/images/zgallery.jpeg",
+      technologies: ["Portainer", "Docker", "Photoprism", "Adobe"],
+      link: "https://gallery.zachsims.com/s/pics/main",
     },
     {
       title: "TinyPM Game Servers",
