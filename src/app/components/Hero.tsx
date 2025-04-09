@@ -127,10 +127,9 @@ const Hero = () => {
                         Hi, I&apos;m Zach
                       </h1>
                       <p className="text-xl lg:text-2xl text-black/80 mb-8 leading-relaxed">
-                        I&apos;m a developer who loves creating elegant
-                        solutions and has a peculiar fascination with geese.
-                        When I&apos;m not coding, you might find me bird
-                        watching or optimizing server deployments.
+                      I&apos;m a developer who loves creating elegant solutions
+                    and has an appreciation for birds of all types. When I&apos;m not
+                    coding, you might find me out exploring the world or photographing it.
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-4 text-lg">
@@ -183,7 +182,7 @@ const Hero = () => {
                   </h1>
                   <p className="text-base md:text-lg text-black/80 mb-4 leading-relaxed">
                     I&apos;m a developer who loves creating elegant solutions
-                    and has a peculiar fascination with geese.
+                    for humans.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {["Full-Stack", "AWS Certified", "7+ Years"].map(
@@ -216,8 +215,8 @@ const Hero = () => {
                   Hi, I&apos;m Zach
                 </h1>
                 <p className="text-base text-black/80 mb-4 leading-relaxed">
-                  I&apos;m a developer who loves creating elegant solutions and
-                  has a peculiar fascination with geese.
+                I&apos;m a developer who loves creating elegant solutions
+                for humans.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {["Full-Stack", "AWS Certified", "7+ Years"].map(

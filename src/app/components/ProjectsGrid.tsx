@@ -5,9 +5,18 @@ import { ProjectCard } from "./ProjectCard";
 const ProjectsGrid = () => {
   const projects = [
     {
+      title: "RocHop",
+      description: "Easy event aggregation and discovery for the Rochester, NY area.",
+      shortDescription: "Local event aggregator",
+      image: "/images/rochop.png",
+      technologies: ["Cloudflare", "React", "Next.js", "Typescript"],
+      github: "https://github.com/Simsz/hoproc",
+      link: "https://rochop.com/",
+    },
+    {
       title: "TinyPM Link's",
       description: "One place to share all your links! Features a bring-your-own-domain (BYOD) feature with on-demand TLS, allowing you to use your own domain for your links",
-      shortDescription: "Custom link in bio tool.",
+      shortDescription: "Custom link in bio tool",
       image: "/images/tinypm2.png",
       technologies: ["Docker", "Caddy", "React", "Supabase", "PostgresSQL", "TailwindCSS", "Next.js", "Typescript", "OAUTH"],
       github: "https://github.com/Simsz/metinypm",
@@ -16,7 +25,7 @@ const ProjectsGrid = () => {
     {
       title: "Photography Gallery",
       description: "Hosted locally w/ Portainer, Docker + PhotoPrism. Just a simple way to view photos I've taken.",
-      shortDescription: "Interactive bar website with dynamic features.",
+      shortDescription: "Self-hosted photo gallery",
       image: "/images/zgallery.jpeg",
       technologies: ["Portainer", "Docker", "Photoprism", "Adobe"],
       link: "https://gallery.zachsims.com/s/pics/main",
@@ -24,7 +33,7 @@ const ProjectsGrid = () => {
     {
       title: "TinyPM Game Servers",
       description: "Quick and easy server management with Pterodactyl Panel in Docker-compose stacks. Enables rapid server deployment and seamless configuration.",
-      shortDescription: "Streamlined server management platform.",
+      shortDescription: "Streamlined server management platform",
       image: "/images/tinypm.png",
       technologies: ["Docker", "Caddy", "Pterodactyl", "Laravel"],
       link: "https://panel.tiny.pm/",
@@ -38,7 +47,7 @@ const ProjectsGrid = () => {
     {
       title: "Tarik Discord",
       description: "Official community server for Twitch streamer and esports professional Tarik Celik, hosting events, competitions and community engagement.",
-      shortDescription: "Community hub for Tarik's streaming platform.",
+      shortDescription: "Community hub for Tarik Celik",
       image: "/images/discord.png",
       technologies: ["Discord API", "Node.js", "Community Tools"],
       link: "https://discord.gg/tarik",
@@ -46,9 +55,9 @@ const ProjectsGrid = () => {
     {
       title: "Pro City",
       description: "High-tier, competitive hub for pros to play against pros, providing a clean environment free from game-throwing and match-fixing.",
-      shortDescription: "Professional competitive gaming platform.",
+      shortDescription: "Pro competitive gaming platform",
       image: "/images/pcdisc.png",
-      technologies: ["Game Server Management", "Node.js", "Community Tools"],
+      technologies: ["Node.js", "Discord", "Valorant", "Cloudflare"],
       link: "https://procity.gg",
       articles: [
         {
@@ -82,7 +91,7 @@ const ProjectsGrid = () => {
       description: "Custom scrim and practice servers for CS:GO players, optimized for skill development with minimal divergence from vanilla gameplay.",
       shortDescription: "CS:GO practice and scrim platform.",
       image: "/images/tarikgg.png",
-      technologies: ["Game Server API", "Node.js", "CS:GO Integration", "SourceMod"],
+      technologies: ["CSAPI", "Node.js", "SourceMod"],
       link: "https://tarik.gg",
     },
     {
@@ -98,7 +107,7 @@ const ProjectsGrid = () => {
       description: "Custom file server, link shortener and image host with ShareX API support.",
       shortDescription: "Multi-purpose file sharing platform.",
       image: "/images/getrekt_dark.png",
-      technologies: ["Node.js", "ShareX API", "File Management"],
+      technologies: ["Node.js", "ShareX API"],
       link: "https://getrekt.cc",
       articles: [
         {
