@@ -49,7 +49,7 @@ const ProjectsGrid = () => {
       description: "Official community server for Twitch streamer and esports professional Tarik Celik, hosting events, competitions and community engagement.",
       shortDescription: "Community hub for Tarik Celik",
       image: "/images/discord.png",
-      technologies: ["Discord API", "Node.js", "Community Tools"],
+      technologies: ["Discord API", "Node.js"],
       link: "https://discord.gg/tarik",
     },
     {

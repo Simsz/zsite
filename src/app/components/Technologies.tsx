@@ -93,7 +93,7 @@ const Technologies = () => {
     },
     {
       name: "Linux",
-      description: "Design Tool",
+      description: "Operating System",
       icon: "/images/tech/linux.svg",
       category: "design",
     },
