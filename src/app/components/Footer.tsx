@@ -43,7 +43,7 @@ const Footer = () => {
               zachsi.ms/
             </Link>
             <p className="text-[#FFCC00]/80">
-              Creating elegant solutions with a peculiar fascination for geese.
+              Creating elegant solutions for humans.
             </p>
           </div>
 

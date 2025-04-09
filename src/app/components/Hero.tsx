@@ -87,9 +87,8 @@ const Hero = () => {
                   </h1>
                   <p className="text-xl lg:text-2xl text-black/80 mb-8 leading-relaxed">
                     I&apos;m a developer who loves creating elegant solutions
-                    and has a peculiar fascination with geese. When I&apos;m not
-                    coding, you might find me bird watching or optimizing server
-                    deployments.
+                    and has an appreciation for birds of all types. When I&apos;m not
+                    coding, you might find me out exploring the world or photographing it.
                   </p>
                   <div className="flex flex-wrap gap-4 text-lg">
                     {["Full-Stack", "AWS Certified", "7+ YOE"].map(
