@@ -128,10 +128,18 @@ const ProjectsGrid = () => {
   ];
 
   return (
-    <section className="py-12">
-      <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-2xl font-bold text-[#FFCC00] mb-8">PROJECTS</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <section className="py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <header className="mb-10 sm:mb-12">
+          <h2 className="text-3xl font-black tracking-tight text-[#FFCC00] sm:text-4xl">
+            Projects
+          </h2>
+          <p className="mt-2 max-w-xl text-sm text-[#FFCC00]/50 sm:text-base">
+            A selection of things I&apos;ve built — click any card for the full
+            story.
+          </p>
+        </header>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
           {projects.map((project, index) => (
             <ProjectCard key={index} project={project} />
           ))}

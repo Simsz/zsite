@@ -5,7 +5,7 @@ import { ArrowDown } from "lucide-react";
 import { Footer } from "../app/components/Footer";
 import { Navigation } from "../app/components/Navigation";
 import { ProjectsGrid } from "../app/components/ProjectsGrid";
-import { Technologies } from "../app/components/Technologies";
+// Technologies section hidden for now — component kept in Technologies.tsx
 import Hero from "../app/components/Hero";
 import Contact from "../app/components/Contact";
 
@@ -32,26 +32,6 @@ export default function Home() {
       </div>
 
       <main className="bg-black text-[#FFCC00]">
-        <div className="relative overflow-hidden">
-          <div className="absolute right-0 top-0 w-64 h-64 transform translate-x-1/2 -translate-y-1/2 opacity-5">
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="currentColor"
-                className="text-gray-200"
-              />
-              <path
-                d="M50,10 Q90,50 50,90 Q10,50 50,10"
-                fill="currentColor"
-                className="text-gray-300"
-              />
-            </svg>
-          </div>
-          <Technologies />
-        </div>
-
         <div className="relative">
           <div className="absolute inset-0 bg-grid-gray-100 opacity-5" />
           <ProjectsGrid />
