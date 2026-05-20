@@ -91,7 +91,7 @@ const Hero = () => {
                     coding, you might find me out exploring the world or photographing it.
                   </p>
                   <div className="flex flex-wrap gap-4 text-lg">
-                    {["Full-Stack", "AWS Certified", "7+ YOE"].map(
+                    {["Full-Stack", "AWS Certified", "10+ YOE"].map(
                       (tech, i) => (
                         <span
                           key={i}
@@ -133,7 +133,7 @@ const Hero = () => {
                       </p>
                     </div>
                     <div className="flex flex-wrap gap-4 text-lg">
-                      {["Full-Stack", "AWS Certified", "7+ YOE"].map(
+                      {["Full-Stack", "AWS Certified", "10+ YOE"].map(
                         (tech, i) => (
                           <span
                             key={i}
@@ -185,7 +185,7 @@ const Hero = () => {
                     for humans.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {["Full-Stack", "AWS Certified", "7+ Years"].map(
+                    {["Full-Stack", "AWS Certified", "10+ Years"].map(
                       (tech, i) => (
                         <span
                           key={i}
@@ -219,7 +219,7 @@ const Hero = () => {
                 for humans.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {["Full-Stack", "AWS Certified", "7+ Years"].map(
+                  {["Full-Stack", "AWS Certified", "10+ Years"].map(
                     (tech, i) => (
                       <span
                         key={i}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { GithubIcon, Mail, FileText, Menu, X, Briefcase } from "lucide-react";
+import { GithubIcon, Mail, Menu, X, Briefcase } from "lucide-react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,12 +25,6 @@ const Navigation = () => {
       href: "https://www.linkedin.com/in/zachesims/",
       label: "Contact",
       icon: Mail,
-      style: "outline",
-    },
-    {
-      href: "/images/Resume_2024.pdf",
-      label: "Resume",
-      icon: FileText,
       style: "outline",
     },
     {

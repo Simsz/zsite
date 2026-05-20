@@ -11,6 +11,8 @@ interface PulsingDot {
   render: () => boolean;
 }
 
+const mapTilerKey = process.env.NEXT_PUBLIC_MAPTILER_KEY;
+
 const Map = () => {
   const mapContainer = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<maplibregl.Map | null>(null);
@@ -22,7 +24,7 @@ const Map = () => {
   }, []);
 
   useEffect(() => {
-    if (!mounted || !mapContainer.current || mapInstance.current) {
+    if (!mapTilerKey || !mounted || !mapContainer.current || mapInstance.current) {
       return;
     }
 
@@ -85,7 +87,7 @@ const Map = () => {
       const map = new maplibregl.Map({
         container: mapContainer.current,
         // Use your custom style URL from MapTiler Cloud
-        style: `https://api.maptiler.com/maps/68c36fb5-b518-4988-a283-5a8d97e88ba0/style.json?key=${process.env.NEXT_PUBLIC_MAPTILER_KEY}`,
+        style: `https://api.maptiler.com/maps/68c36fb5-b518-4988-a283-5a8d97e88ba0/style.json?key=${mapTilerKey}`,
         center: [-77.6109, 43.1566],
         zoom: 3,
         attributionControl: false,
@@ -195,7 +197,15 @@ const Map = () => {
     };
   }, [mounted]);
 
-  // Update the return statement in your Map component to use full viewport sizing
+  if (!mapTilerKey) {
+    return (
+      <div className="relative w-full h-full bg-black flex flex-col items-center justify-center text-center px-6">
+        <p className="text-[#FFCC00] text-xl font-semibold">Rochester, NY</p>
+        <p className="text-[#FFCC00]/55 text-sm mt-2">Western New York</p>
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-full bg-black">
       <div

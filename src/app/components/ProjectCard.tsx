@@ -22,6 +22,8 @@ interface Project {
   link?: string;
   github?: string;
   articles?: Article[];
+  /** When true, modal omits the "Visit Live Site" button (link may still be used elsewhere). */
+  hideLiveLink?: boolean;
 }
 
 interface TechTagProps {
@@ -190,7 +192,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             <p className="text-black/80 text-lg mb-8">{project.description}</p>
 
             <div className="flex flex-wrap gap-4">
-              {project.link && (
+              {project.link && !project.hideLiveLink && (
                 <a
                   href={project.link}
                   target="_blank"

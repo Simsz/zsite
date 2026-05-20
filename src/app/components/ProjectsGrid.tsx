@@ -5,6 +5,15 @@ import { ProjectCard } from "./ProjectCard";
 const ProjectsGrid = () => {
   const projects = [
     {
+      title: "Upfront Web Services",
+      description:
+        "Digital marketing agency: performance-focused sites and campaigns, built on Cloudflare, Stripe billing integrations, and hand-tuned HTML/CSS.",
+      shortDescription: "Digital marketing agency",
+      image: "/images/us_banner_g.png",
+      technologies: ["Cloudflare", "Stripe", "HTML/CSS"],
+      link: "https://upfrontws.com/",
+    },
+    {
       title: "RocHop",
       description: "Easy event aggregation and discovery for the Rochester, NY area.",
       shortDescription: "Local event aggregator",
@@ -12,6 +21,7 @@ const ProjectsGrid = () => {
       technologies: ["Cloudflare", "React", "Next.js", "Typescript"],
       github: "https://github.com/Simsz/hoproc",
       link: "https://rochop.com/",
+      hideLiveLink: true,
     },
     {
       title: "TinyPM Link's",
@@ -21,6 +31,7 @@ const ProjectsGrid = () => {
       technologies: ["Docker", "Caddy", "React", "Supabase", "PostgresSQL", "TailwindCSS", "Next.js", "Typescript", "OAUTH"],
       github: "https://github.com/Simsz/metinypm",
       link: "https://tiny.pm/",
+      hideLiveLink: true,
     },
     {
       title: "Photography Gallery",
@@ -29,6 +40,7 @@ const ProjectsGrid = () => {
       image: "/images/zgallery.jpeg",
       technologies: ["Portainer", "Docker", "Photoprism", "Adobe"],
       link: "https://gallery.zachsims.com/s/pics/main",
+      hideLiveLink: true,
     },
     {
       title: "TinyPM Game Servers",
@@ -37,6 +49,7 @@ const ProjectsGrid = () => {
       image: "/images/tinypm.png",
       technologies: ["Docker", "Caddy", "Pterodactyl", "Laravel"],
       link: "https://panel.tiny.pm/",
+      hideLiveLink: true,
       articles: [
         {
           title: "TinyPM Game Servers Discord",
@@ -59,6 +72,7 @@ const ProjectsGrid = () => {
       image: "/images/pcdisc.png",
       technologies: ["Node.js", "Discord", "Valorant", "Cloudflare"],
       link: "https://procity.gg",
+      hideLiveLink: true,
       articles: [
         {
           title: "VALORANT pros fight back against trolls and crypto gamblers with 'Pro City'",
@@ -103,24 +117,6 @@ const ProjectsGrid = () => {
       link: "https://splits.zachsims.com",
     },
     {
-      title: "GetRekt",
-      description: "Custom file server, link shortener and image host with ShareX API support.",
-      shortDescription: "Multi-purpose file sharing platform.",
-      image: "/images/getrekt_dark.png",
-      technologies: ["Node.js", "ShareX API"],
-      link: "https://getrekt.cc",
-      articles: [
-        {
-          title: "Example Image",
-          link: "https://share.getrekt.cc/i/HaTpDK",
-        },
-        {
-          title: "Example Code",
-          link: "https://paste.getrekt.cc/nmqKdJ/python",
-        },
-      ],
-    },
-    {
       title: "Martine",
       description:
         "Proof of concept website for a local bar using Astro, React and TailwindCSS.",
@@ -128,9 +124,7 @@ const ProjectsGrid = () => {
       image: "/images/martine.png",
       technologies: ["Astro", "React", "TailwindCSS"],
       link: "https://martine.tiny.pm",
-      
     },
-    
   ];
 
   return (
